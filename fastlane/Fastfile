@@ -1,0 +1,47 @@
+require "json"
+
+default_platform(:ios)
+
+lane :create_new_app do
+  create_app_online
+end
+
+platform :ios do
+  before_all do
+    if ENV["CIRCLECI"]
+      setup_circle_ci
+    end
+  end
+
+  desc "Load ios certificates and provisioning profiles"
+  lane :load_signing do
+    sync_code_signing
+  end
+
+  desc "Upload existing build to TestFlight"
+  lane :upload_build do |options|
+    app_store_connect_api_key
+    upload_to_testflight
+  end
+end
+
+desc "Create and setup configuration file for Expo EAS"
+lane :install_expo_credentials do
+  credentials_path = ENV["MATCH_OUTPUT_PATH"]
+  match_password = ENV["MATCH_PASSWORD"]
+
+  provisioning = "AppStore_com.flashfood.shopper-rn.mobileprovision"
+  cert = `find ../#{credentials_path} -name "*.p12" -exec basename {} \\;`
+
+  credentials = {
+    "ios": {
+      "provisioningProfilePath": "#{credentials_path}/#{provisioning}",
+      "distributionCertificate": {
+        "path": "#{credentials_path}/#{cert.strip}",
+        "password": match_password,
+      },
+    },
+  }
+
+  File.write("../credentials.json", credentials.to_json, mode: "a")
+end
