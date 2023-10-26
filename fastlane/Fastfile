@@ -2,7 +2,7 @@ require "json"
 
 default_platform(:ios)
 
-lane :create_new_app do
+lane :create_demo_app do
   create_app_online
 end
 
