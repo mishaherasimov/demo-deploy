@@ -37,3 +37,7 @@ yarn-error.*
 # fastlane
 fastlane/README.md
 fastlane/report.xml
+
+# keys
+credentials.json
+ios/certs/*
