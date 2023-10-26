@@ -28,11 +28,6 @@ jobs:
           fingerprints:
             - "6e:58:d8:e6:26:dc:3a:ee:0a:68:03:f0:af:03:f1:c7"
       - checkout
-      - run:
-          name: "Install Ruby version"
-          command: |
-            rbenv install 2.7.7
-            rbenv global 2.7.7
       - ruby/install-deps
       - run:
           name: "Run Fastlane"
