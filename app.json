@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "demo-deploy",
+    "name": "Demo: Expo",
     "slug": "demo-deploy",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,6 +15,8 @@
       "**/*"
     ],
     "ios": {
+      "buildNumber": "1",
+      "bundleIdentifier": "com.untitled.demo-deploy",
       "supportsTablet": true
     },
     "android": {
@@ -25,6 +27,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f4a0499d-e8a8-45e0-8805-a962e6ad0c80"
+      }
     }
   }
 }
