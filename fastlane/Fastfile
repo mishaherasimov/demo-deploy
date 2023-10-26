@@ -15,6 +15,7 @@ platform :ios do
 
   desc "Load ios certificates and provisioning profiles"
   lane :load_signing do
+    app_store_connect_api_key
     sync_code_signing
   end
 
