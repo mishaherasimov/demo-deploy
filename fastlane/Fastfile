@@ -9,7 +9,7 @@ end
 platform :ios do
   before_all do
     if ENV["CIRCLECI"]
-      setup_circle_ci
+      # setup_circle_ci
     end
   end
 

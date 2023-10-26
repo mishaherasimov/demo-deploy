@@ -1,0 +1,31 @@
+version: 2.1
+
+parameters:
+  test:
+    type: boolean
+    default: false
+
+executors:
+  ios:
+    macos:
+      xcode: 15.0.1
+    resource_class: macos.x86.medium.gen2
+    working_directory: /Users/distiller/project
+    shell: /bin/bash --login -o pipefail
+    environment:
+      FL_OUTPUT_DIR: output
+      LANG: en_US.UTF-8
+
+jobs:
+  create_certs:
+    steps:
+      - checkout
+
+workflows:
+  demo_text:
+    when: << pipeline.parameters.test >>
+    jobs:
+      - create_certs:
+          context:
+            - expo
+            - app_store
