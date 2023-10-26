@@ -41,3 +41,5 @@ fastlane/report.xml
 # keys
 credentials.json
 ios/certs/*
+
+README.md

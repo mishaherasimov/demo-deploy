@@ -30,7 +30,7 @@ lane :install_expo_credentials do
   credentials_path = ENV["MATCH_OUTPUT_PATH"]
   match_password = ENV["MATCH_PASSWORD"]
 
-  provisioning = "AppStore_com.flashfood.shopper-rn.mobileprovision"
+  provisioning = "AppStore_com.untitled.demo-deploy.mobileprovision"
   cert = `find ../#{credentials_path} -name "*.p12" -exec basename {} \\;`
 
   credentials = {
