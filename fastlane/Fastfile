@@ -8,6 +8,7 @@ end
 
 platform :ios do
   before_all do
+    Dotenv.load(".env.secret")
     if ENV["CIRCLECI"]
       # setup_circle_ci
     end
