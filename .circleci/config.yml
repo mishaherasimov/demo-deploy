@@ -30,7 +30,7 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install:
-          node-version: "16.8.1"
+          node-version: "v16.8.1"
       - node/install-packages
       - run:
           name: "Install eas clis"
