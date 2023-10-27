@@ -29,6 +29,13 @@ jobs:
             - "6e:58:d8:e6:26:dc:3a:ee:0a:68:03:f0:af:03:f1:c7"
       - checkout
       - ruby/install-deps
+      - node/install:
+          node-version: "16.8.1"
+      - node/install-packages
+      - run:
+          name: "Install eas clis"
+          command: |
+            npm install -g eas-cli
       - run:
           name: "Run Fastlane"
           command: |
