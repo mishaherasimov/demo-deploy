@@ -8,15 +8,13 @@ end
 
 platform :ios do
   before_all do
-    Dotenv.load(".env.secret")
     if ENV["CIRCLECI"]
-      # setup_circle_ci
+      setup_circle_ci
     end
   end
 
   desc "Load ios certificates and provisioning profiles"
   lane :load_signing do
-    app_store_connect_api_key
     sync_code_signing
   end
 
@@ -30,7 +28,6 @@ end
 desc "Create and setup configuration file for Expo EAS"
 lane :install_expo_credentials do
   credentials_path = ENV["MATCH_OUTPUT_PATH"]
-  match_password = ENV["MATCH_PASSWORD"]
 
   provisioning = "AppStore_com.untitled.demo-deploy.mobileprovision"
   cert = `find ../#{credentials_path} -name "*.p12" -exec basename {} \\;`
@@ -40,7 +37,7 @@ lane :install_expo_credentials do
       "provisioningProfilePath": "#{credentials_path}/#{provisioning}",
       "distributionCertificate": {
         "path": "#{credentials_path}/#{cert.strip}",
-        "password": match_password,
+        "password": "",
       },
     },
   }
