@@ -40,18 +40,18 @@ jobs:
           name: "Run Fastlane"
           command: |
             bundle exec fastlane load_signing
-      - run:
-          name: "Create credentials"
-          command: |
-            bundle exec fastlane install_expo_credentials
-      - run:
-          name: "Build the app"
-          command: |
-            bundle exec eas build --local --platform ios --profile production --non-interactive --output="artifact/demo-deploy.ipa"
-      - run:
-          name: "Upload to test flight"
-          command: |
-            bundle exec fastlane upload_build
+      # - run:
+      #     name: "Create credentials"
+      #     command: |
+      #       bundle exec fastlane install_expo_credentials
+      # - run:
+      #     name: "Build the app"
+      #     command: |
+      #       bundle exec eas build --local --platform ios --profile production --non-interactive --output="artifact/demo-deploy.ipa"
+      # - run:
+      #     name: "Upload to test flight"
+      #     command: |
+      #       bundle exec fastlane upload_build
 
 workflows:
   demo_text:
