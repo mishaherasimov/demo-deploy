@@ -36,14 +36,14 @@ jobs:
           name: "Install eas clis"
           command: |
             npm install -g eas-cli
-      - run:
-          name: "Run Fastlane"
-          command: |
-            bundle exec fastlane load_signing
-      - run:
-          name: "Create credentials"
-          command: |
-            bundle exec fastlane install_expo_credentials
+      # - run:
+      #     name: "Run Fastlane"
+      #     command: |
+      #       bundle exec fastlane load_signing
+      # - run:
+      #     name: "Create credentials"
+      #     command: |
+      #       bundle exec fastlane install_expo_credentials
       - run:
           name: "Build the app"
           command: |
